@@ -14,14 +14,12 @@ namespace Analogy.LogViewer.RSSReader.Core
     public class RSSFeedsContainer : IDeserializationCallback
     {
         #region Data Members
-
-        //public string Filename { get; set; }
-        //   private bool IsFileExist { get { return File.Exists(Filename); } }
         private List<IRSSFeed> Feeds { get; set; }
-        public int FeedsCount { get { return (Feeds != null) ? Feeds.Count() : 0; } }
+        public int FeedsCount => Feeds?.Count ?? 0;
         private BindingList<IRSSCategory> Categories { get; set; }
-        public int CategoriesCount { get { return (Categories != null) ? Categories.Count() : 0; } }
-        public IRSSFeed this[int id] { get { return Feeds[id]; } }
+        public int CategoriesCount => Categories?.Count ?? 0;
+        public IRSSFeed this[int id] => Feeds[id];
+
         [NonSerialized]
         public ReaderWriterLockSlim RssLock = new ReaderWriterLockSlim();
         #endregion
@@ -58,7 +56,7 @@ namespace Analogy.LogViewer.RSSReader.Core
             try
             {
                 IRSSFeed feed = null;
-                if (Feeds.Count() > id)
+                if (Feeds.Count > id)
                 {
                     feed = Feeds[id];
                     Feeds.RemoveAt(id);

@@ -73,6 +73,36 @@ namespace Analogy.LogViewer.RSSReader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AnalogyRSS {
+            get {
+                object obj = ResourceManager.GetObject("AnalogyRSS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AnalogyRSS32x32 {
+            get {
+                object obj = ResourceManager.GetObject("AnalogyRSS32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AnalogyRSS32x32Transparent {
+            get {
+                object obj = ResourceManager.GetObject("AnalogyRSS32x32Transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow1 {
             get {
                 object obj = ResourceManager.GetObject("arrow1", resourceCulture);

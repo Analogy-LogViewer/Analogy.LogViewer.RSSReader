@@ -10,7 +10,17 @@ namespace Analogy.LogViewer.RSSReader.Core
     [Serializable]
     public class StandardRSSPost : AbstractRSSPost
     {
+        private enum RSStags
+        {
+            title,
+            pubDate,
+            link,
+            guid,
+            description,
+            creator,
+            content,
 
+        }
         public StandardRSSPost(XContainer post, IRSSFeed feed)
         {
             BelongsToFeed = feed;
@@ -20,9 +30,10 @@ namespace Analogy.LogViewer.RSSReader.Core
             Url = GetElementValue(post, "guid");
             Description = GetElementValue(post, "description");
             Creator = GetElementValue(post,
-                                      "{http://purl.org/dc/elements/1.1/}creator");
+                "{http://purl.org/rss/elements/1.1/}");
             Content = GetElementValue(post,
-                                      "{http://purl.org/dc/elements/1.0/modules/content}encoded");
+                "{http://purl.org/rss/1.0/modules/content/}");
+
 
             // The Date property is a nullable DateTime? -- if the pubDate element
             // can't be parsed into a valid date, the Date property is set to null
@@ -53,9 +64,13 @@ namespace Analogy.LogViewer.RSSReader.Core
 
         private static string GetElementValue(XContainer element, string name)
         {
-            if ((element == null) || (element.Element(name) == null))
-                return String.Empty;
-            return element.Element(name).Value;
+            //if (element == null) return string.Empty;
+            //var result = (element.Elements().FirstOrDefault(e => e.Name.Contains(name)));
+            //return result != null ? result.Value : string.Empty;
+
+            if (element?.Element(name) == null)
+                return string.Empty;
+            return element.Element(name)?.Value;
         }
 
 

@@ -1,27 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
 using Analogy.Interfaces.Factories;
+using Analogy.LogViewer.RSSReader.Properties;
+using Analogy.LogViewer.RSSReader.UI;
 
 namespace Analogy.LogViewer.RSSReader.Core
 {
-   public class RSSDataProvider : IAnalogyDataProvidersFactory
+    public class RSSDataProvider : IAnalogyDataProvidersFactory
     {
-        public string Title { get; }= "Analogy RSS Reader";
+        public string Title { get; } = "Analogy RSS Reader";
         public IEnumerable<IAnalogyDataProvider> Items { get; }
 
         public RSSDataProvider()
         {
-            Items=new List<IAnalogyDataProvider>{};
+            Items = new List<IAnalogyDataProvider> { new OnlineRSSReader() };
         }
     }
 
-   public class OnlineRSSREader: IAnalogyRealTimeDataProvider
+    public class OnlineRSSReader : IAnalogyRealTimeDataProvider
     {
-       public Guid ID { get; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
+        public Guid ID { get; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
         public string OptionalTitle { get; } = "Analogy RSS Reader";
         public IAnalogyOfflineDataProvider FileOperationsHandler { get; }
         public bool IsConnected { get; }
@@ -29,24 +34,69 @@ namespace Analogy.LogViewer.RSSReader.Core
         public event EventHandler<AnalogyLogMessageArgs> OnMessageReady;
         public event EventHandler<AnalogyLogMessagesArgs> OnManyMessagesReady;
 
-        public Task<bool> CanStartReceiving()
+        private WebFetcher Featcher { get; set; }
+        public Task<bool> CanStartReceiving() => Task.FromResult(true);
+        private Task FeatcherTask;
+        private RSSFeedsContainer RSSContainer = ComponentsContainer.Instance.RSSFeedsContainer;
+        private AppSettings Settings = ComponentsContainer.Instance.AppSettings;
+        public void InitDataProvider()
         {
-            throw new NotImplementedException();
+            Featcher = new WebFetcher();
         }
-
         public void StartReceiving()
         {
-            throw new NotImplementedException();
+            FeatcherTask = Task.Factory.StartNew(async () =>
+            {
+                var feeds = RSSContainer.GetNonDisabledFeeds().ToList();
+                if (feeds.Any())
+
+                {
+                    var posts = await Featcher.GetRSSItemsFromFeeds(feeds, false, true);
+                    foreach (IRSSPost post in posts)
+                    {
+                        AnalogyLogMessage m = CreateAnalogyMessageFromPost(post);
+                        OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, post.Url, post.Url, ID));
+                    }
+                }
+                else
+                {
+                    await Task.Delay(Settings.AppRSSSetings.IntervalMinutes * 60 * 1000);
+                }
+            });
+        }
+
+        private AnalogyLogMessage CreateAnalogyMessageFromPost(IRSSPost post)
+        {
+            return new AnalogyLogMessage
+            {
+                Category = post.FeedName,
+                Class = AnalogyLogClass.General,
+                Date = post.Date ?? DateTime.MinValue,
+                FileName = post.FeedName,
+                Level = AnalogyLogLevel.Event,
+                Source = post.Url,
+                Text = post.Title + Environment.NewLine + post.Description
+            };
         }
 
         public void StopReceiving()
         {
-            throw new NotImplementedException();
+            //
         }
-        
-        public void InitDataProvider()
-        {
 
+
+    }
+
+    public class RSSUserSetting : IAnalogyDataProviderSettings
+    {
+        public Task SaveSettingsAsync()
+        {
+            AppSettings.SaveSettings(ComponentsContainer.Instance.AppSettings, false);
+            return Task.CompletedTask;
         }
+
+        public string Title { get; } = "Analogy RSS Feed Settings";
+        public UserControl DataProviderSettings => new SettingsDialogUC(ComponentsContainer.Instance.RSSFeedsContainer, ComponentsContainer.Instance.AppSettings);
+        public Image Icon { get; } = Resources.AnalogyRSS32x32Transparent;
     }
 }

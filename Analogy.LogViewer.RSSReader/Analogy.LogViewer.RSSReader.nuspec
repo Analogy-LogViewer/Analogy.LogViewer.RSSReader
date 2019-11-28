@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Analogy.LogViewer.RSSReader</id>
+    <version>1.0.0.0</version>
+    <title>RSS Reader For Analogy Log Viewer</title>
+    <authors>Lior Banai</authors>
+    <owners>Lior Banai</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.RSSReader</projectUrl>
+    <icon>AnalogyRSS.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>IIS Log Parser For Analogy Log Viewer</description>
+    <releaseNotes>IIS Log Parser For Analogy Log Viewer</releaseNotes>
+    <copyright>Copyright 2019 Lior Banai</copyright>
+    <repository type="git" url="https://github.com/Analogy-LogViewer/Analogy.LogViewer.RSSReader"/>
+    <tags></tags>
+    <dependencies>
+      <group targetFramework="net472">
+        <dependency id="Analogy.LogViewer.Interfaces" version="2.1.5.1" />
+        <dependency id="Analogy.DataProviders.Extensions" version="1.0.0.7"/>
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Analogy.DataProviders.Extensions.dll" target="lib\net472\Analogy.DataProviders.Extensions.dll" />
+	<file src="bin\Release\Analogy.Interfaces.dll" target="lib\net472\Analogy.Interfaces.dll" />
+	<file src="bin\Release\Analogy.LogViewer.RSSReader.dll" target="lib\net472\Analogy.LogViewer.RSSReader.dll" />
+	<file src="bin\Release\Analogy.LogViewer.RSSReader.dll.config" target="lib\net472\Analogy.LogViewer.RSSReader.dll.config" />
+	<file src="bin\Release\Newtonsoft.Json.dll" target="lib\net472\Newtonsoft.Json.dll" />
+    <file src="AnalogyRSS.png" target="" />
+  </files>
+</package>

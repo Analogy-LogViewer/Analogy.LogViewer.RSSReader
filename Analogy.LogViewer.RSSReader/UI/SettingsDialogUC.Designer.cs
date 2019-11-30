@@ -33,7 +33,7 @@
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("RSS Settings", 1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("RSS Categories", "rsscategories.jpg");
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Outlook Settings", "thumb_Outlook.ico");
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsDialog));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsDialogUC));
             this.txtbRSSURL = new System.Windows.Forms.TextBox();
             this.lblRSSURL = new System.Windows.Forms.Label();
             this.chkblstRSSItems = new System.Windows.Forms.CheckedListBox();
@@ -60,13 +60,6 @@
             this.lblEncoding = new System.Windows.Forms.Label();
             this.chkbDontKeepHistory = new System.Windows.Forms.CheckBox();
             this.btnAddRSS = new System.Windows.Forms.Button();
-            this.tpCustomFeeds = new System.Windows.Forms.TabPage();
-            this.rbCustomFeedFBReaderSourceForgeFiles = new System.Windows.Forms.RadioButton();
-            this.rbCustomFeedFBReaderFBWall = new System.Windows.Forms.RadioButton();
-            this.rbCustomFeedSourceForgeFiles = new System.Windows.Forms.RadioButton();
-            this.rbCustomFeedFBWall = new System.Windows.Forms.RadioButton();
-            this.btnAddRSSCustom = new System.Windows.Forms.Button();
-            this.rbCustomFeedGmail = new System.Windows.Forms.RadioButton();
             this.pnlRSSSettings = new System.Windows.Forms.Panel();
             this.lblSaveTime = new System.Windows.Forms.Label();
             this.gbavailableFeeds = new System.Windows.Forms.GroupBox();
@@ -117,7 +110,6 @@
             this.tbNewFeeds.SuspendLayout();
             this.tpStandardFeeds.SuspendLayout();
             this.gbEncodings.SuspendLayout();
-            this.tpCustomFeeds.SuspendLayout();
             this.pnlRSSSettings.SuspendLayout();
             this.gbavailableFeeds.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spltcMain)).BeginInit();
@@ -140,8 +132,8 @@
             // 
             // txtbRSSURL
             // 
-            this.txtbRSSURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbRSSURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbRSSURL.Location = new System.Drawing.Point(117, 8);
             this.txtbRSSURL.Margin = new System.Windows.Forms.Padding(4);
             this.txtbRSSURL.Name = "txtbRSSURL";
@@ -160,9 +152,9 @@
             // 
             // chkblstRSSItems
             // 
-            this.chkblstRSSItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkblstRSSItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chkblstRSSItems.FormattingEnabled = true;
             this.chkblstRSSItems.Location = new System.Drawing.Point(6, 62);
             this.chkblstRSSItems.Name = "chkblstRSSItems";
@@ -184,8 +176,8 @@
             // 
             // txtbRSSName
             // 
-            this.txtbRSSName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbRSSName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbRSSName.Location = new System.Drawing.Point(117, 44);
             this.txtbRSSName.Margin = new System.Windows.Forms.Padding(4);
             this.txtbRSSName.Name = "txtbRSSName";
@@ -205,8 +197,8 @@
             // 
             // txtbUpdateFeedName
             // 
-            this.txtbUpdateFeedName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbUpdateFeedName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbUpdateFeedName.Location = new System.Drawing.Point(144, 308);
             this.txtbUpdateFeedName.Margin = new System.Windows.Forms.Padding(4);
             this.txtbUpdateFeedName.Name = "txtbUpdateFeedName";
@@ -237,8 +229,8 @@
             // 
             // txtbUpdateFeedURL
             // 
-            this.txtbUpdateFeedURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbUpdateFeedURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbUpdateFeedURL.Location = new System.Drawing.Point(144, 274);
             this.txtbUpdateFeedURL.Margin = new System.Windows.Forms.Padding(4);
             this.txtbUpdateFeedURL.Name = "txtbUpdateFeedURL";
@@ -259,8 +251,8 @@
             // 
             // chkbNewPrivate
             // 
-            this.chkbNewPrivate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkbNewPrivate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chkbNewPrivate.AutoEllipsis = true;
             this.chkbNewPrivate.Location = new System.Drawing.Point(8, 79);
             this.chkbNewPrivate.Name = "chkbNewPrivate";
@@ -273,17 +265,17 @@
             // 
             this.chkbPrivate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkbPrivate.AutoSize = true;
-            this.chkbPrivate.Location = new System.Drawing.Point(471, 245);
+            this.chkbPrivate.Location = new System.Drawing.Point(443, 241);
             this.chkbPrivate.Name = "chkbPrivate";
-            this.chkbPrivate.Size = new System.Drawing.Size(154, 21);
+            this.chkbPrivate.Size = new System.Drawing.Size(182, 25);
             this.chkbPrivate.TabIndex = 18;
             this.chkbPrivate.Text = "This is private RSS ";
             this.chkbPrivate.UseVisualStyleBackColor = true;
             // 
             // gpNewFeed
             // 
-            this.gpNewFeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpNewFeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gpNewFeed.Controls.Add(this.tbNewFeeds);
             this.gpNewFeed.Location = new System.Drawing.Point(14, 33);
             this.gpNewFeed.Name = "gpNewFeed";
@@ -294,11 +286,10 @@
             // 
             // tbNewFeeds
             // 
-            this.tbNewFeeds.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbNewFeeds.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNewFeeds.Controls.Add(this.tpStandardFeeds);
-            this.tbNewFeeds.Controls.Add(this.tpCustomFeeds);
             this.tbNewFeeds.Location = new System.Drawing.Point(6, 24);
             this.tbNewFeeds.Name = "tbNewFeeds";
             this.tbNewFeeds.SelectedIndex = 0;
@@ -326,8 +317,8 @@
             // 
             // gbEncodings
             // 
-            this.gbEncodings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbEncodings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbEncodings.Controls.Add(this.rbEncodingUTF8);
             this.gbEncodings.Controls.Add(this.cbCodepages);
             this.gbEncodings.Controls.Add(this.rbcodepage);
@@ -355,8 +346,8 @@
             // 
             // cbCodepages
             // 
-            this.cbCodepages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCodepages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCodepages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCodepages.Enabled = false;
             this.cbCodepages.FormattingEnabled = true;
@@ -420,8 +411,8 @@
             // 
             // chkbDontKeepHistory
             // 
-            this.chkbDontKeepHistory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkbDontKeepHistory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chkbDontKeepHistory.Location = new System.Drawing.Point(8, 109);
             this.chkbDontKeepHistory.Name = "chkbDontKeepHistory";
             this.chkbDontKeepHistory.Size = new System.Drawing.Size(620, 25);
@@ -441,96 +432,6 @@
             this.btnAddRSS.UseVisualStyleBackColor = true;
             this.btnAddRSS.Click += new System.EventHandler(this.btnAddRSS_Click);
             // 
-            // tpCustomFeeds
-            // 
-            this.tpCustomFeeds.Controls.Add(this.rbCustomFeedFBReaderSourceForgeFiles);
-            this.tpCustomFeeds.Controls.Add(this.rbCustomFeedFBReaderFBWall);
-            this.tpCustomFeeds.Controls.Add(this.rbCustomFeedSourceForgeFiles);
-            this.tpCustomFeeds.Controls.Add(this.rbCustomFeedFBWall);
-            this.tpCustomFeeds.Controls.Add(this.btnAddRSSCustom);
-            this.tpCustomFeeds.Controls.Add(this.rbCustomFeedGmail);
-            this.tpCustomFeeds.Location = new System.Drawing.Point(4, 25);
-            this.tpCustomFeeds.Name = "tpCustomFeeds";
-            this.tpCustomFeeds.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCustomFeeds.Size = new System.Drawing.Size(649, 251);
-            this.tpCustomFeeds.TabIndex = 1;
-            this.tpCustomFeeds.Text = "Custom Feeds (Gmail Account & Others)";
-            this.tpCustomFeeds.UseVisualStyleBackColor = true;
-            // 
-            // rbCustomFeedFBReaderSourceForgeFiles
-            // 
-            this.rbCustomFeedFBReaderSourceForgeFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbCustomFeedFBReaderSourceForgeFiles.AutoEllipsis = true;
-            this.rbCustomFeedFBReaderSourceForgeFiles.Location = new System.Drawing.Point(27, 166);
-            this.rbCustomFeedFBReaderSourceForgeFiles.Name = "rbCustomFeedFBReaderSourceForgeFiles";
-            this.rbCustomFeedFBReaderSourceForgeFiles.Size = new System.Drawing.Size(452, 31);
-            this.rbCustomFeedFBReaderSourceForgeFiles.TabIndex = 7;
-            this.rbCustomFeedFBReaderSourceForgeFiles.Text = "Facebook News Feed Reader SourceForge Files";
-            this.rbCustomFeedFBReaderSourceForgeFiles.UseVisualStyleBackColor = true;
-            // 
-            // rbCustomFeedFBReaderFBWall
-            // 
-            this.rbCustomFeedFBReaderFBWall.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbCustomFeedFBReaderFBWall.AutoEllipsis = true;
-            this.rbCustomFeedFBReaderFBWall.Location = new System.Drawing.Point(27, 128);
-            this.rbCustomFeedFBReaderFBWall.Name = "rbCustomFeedFBReaderFBWall";
-            this.rbCustomFeedFBReaderFBWall.Size = new System.Drawing.Size(452, 31);
-            this.rbCustomFeedFBReaderFBWall.TabIndex = 6;
-            this.rbCustomFeedFBReaderFBWall.Text = "Facebook News Feed Reader Facebook Wall";
-            this.rbCustomFeedFBReaderFBWall.UseVisualStyleBackColor = true;
-            // 
-            // rbCustomFeedSourceForgeFiles
-            // 
-            this.rbCustomFeedSourceForgeFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbCustomFeedSourceForgeFiles.AutoEllipsis = true;
-            this.rbCustomFeedSourceForgeFiles.Location = new System.Drawing.Point(27, 90);
-            this.rbCustomFeedSourceForgeFiles.Name = "rbCustomFeedSourceForgeFiles";
-            this.rbCustomFeedSourceForgeFiles.Size = new System.Drawing.Size(452, 31);
-            this.rbCustomFeedSourceForgeFiles.TabIndex = 5;
-            this.rbCustomFeedSourceForgeFiles.Text = "RSS Aggregator SourceForge Files";
-            this.rbCustomFeedSourceForgeFiles.UseVisualStyleBackColor = true;
-            // 
-            // rbCustomFeedFBWall
-            // 
-            this.rbCustomFeedFBWall.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbCustomFeedFBWall.AutoEllipsis = true;
-            this.rbCustomFeedFBWall.Location = new System.Drawing.Point(27, 52);
-            this.rbCustomFeedFBWall.Name = "rbCustomFeedFBWall";
-            this.rbCustomFeedFBWall.Size = new System.Drawing.Size(452, 31);
-            this.rbCustomFeedFBWall.TabIndex = 4;
-            this.rbCustomFeedFBWall.Text = "RSS Aggregator Facebook Wall";
-            this.rbCustomFeedFBWall.UseVisualStyleBackColor = true;
-            // 
-            // btnAddRSSCustom
-            // 
-            this.btnAddRSSCustom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddRSSCustom.BackgroundImage = global::Analogy.LogViewer.RSSReader.Properties.Resources.rssadd;
-            this.btnAddRSSCustom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddRSSCustom.Location = new System.Drawing.Point(570, 7);
-            this.btnAddRSSCustom.Name = "btnAddRSSCustom";
-            this.btnAddRSSCustom.Size = new System.Drawing.Size(68, 63);
-            this.btnAddRSSCustom.TabIndex = 3;
-            this.btnAddRSSCustom.UseVisualStyleBackColor = true;
-            this.btnAddRSSCustom.Click += new System.EventHandler(this.btnAddRSSCustom_Click);
-            // 
-            // rbCustomFeedGmail
-            // 
-            this.rbCustomFeedGmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbCustomFeedGmail.AutoEllipsis = true;
-            this.rbCustomFeedGmail.Checked = true;
-            this.rbCustomFeedGmail.Location = new System.Drawing.Point(27, 14);
-            this.rbCustomFeedGmail.Name = "rbCustomFeedGmail";
-            this.rbCustomFeedGmail.Size = new System.Drawing.Size(452, 31);
-            this.rbCustomFeedGmail.TabIndex = 0;
-            this.rbCustomFeedGmail.TabStop = true;
-            this.rbCustomFeedGmail.Text = "GMail Account";
-            this.rbCustomFeedGmail.UseVisualStyleBackColor = true;
-            // 
             // pnlRSSSettings
             // 
             this.pnlRSSSettings.AutoScroll = true;
@@ -544,8 +445,8 @@
             // 
             // lblSaveTime
             // 
-            this.lblSaveTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSaveTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSaveTime.AutoEllipsis = true;
             this.lblSaveTime.Location = new System.Drawing.Point(10, 9);
             this.lblSaveTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -556,9 +457,9 @@
             // 
             // gbavailableFeeds
             // 
-            this.gbavailableFeeds.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbavailableFeeds.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbavailableFeeds.Controls.Add(this.chkbDisabledFeed);
             this.gbavailableFeeds.Controls.Add(this.btnClearAllHistories);
             this.gbavailableFeeds.Controls.Add(this.btnSelectAll);
@@ -679,8 +580,8 @@
             // 
             // spltcMain.Panel2
             // 
-            this.spltcMain.Panel2.Controls.Add(this.pnlRSSSettings);
             this.spltcMain.Panel2.Controls.Add(this.pnlGeneralSettings);
+            this.spltcMain.Panel2.Controls.Add(this.pnlRSSSettings);
             this.spltcMain.Panel2.Controls.Add(this.pnlOutlook);
             this.spltcMain.Panel2.Controls.Add(this.pnlRSScategories);
             this.spltcMain.Size = new System.Drawing.Size(1055, 808);
@@ -690,6 +591,7 @@
             // lvItems
             // 
             this.lvItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvItems.HideSelection = false;
             this.lvItems.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -809,8 +711,8 @@
             // 
             // gbFilesLocation
             // 
-            this.gbFilesLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbFilesLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbFilesLocation.Controls.Add(this.rbtnPerUsers);
             this.gbFilesLocation.Controls.Add(this.rbtnForAllUsers);
             this.gbFilesLocation.Location = new System.Drawing.Point(11, 12);
@@ -822,20 +724,20 @@
             // 
             // rbtnPerUsers
             // 
-            this.rbtnPerUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbtnPerUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rbtnPerUsers.AutoEllipsis = true;
             this.rbtnPerUsers.Location = new System.Drawing.Point(18, 63);
             this.rbtnPerUsers.Name = "rbtnPerUsers";
             this.rbtnPerUsers.Size = new System.Drawing.Size(822, 58);
             this.rbtnPerUsers.TabIndex = 1;
-            this.rbtnPerUsers.Text = "Per User (files will be saved in the following folder: )";
+            this.rbtnPerUsers.Text = "Per User (files will be saved in the local user folder)";
             this.rbtnPerUsers.UseVisualStyleBackColor = true;
             // 
             // rbtnForAllUsers
             // 
-            this.rbtnForAllUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbtnForAllUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rbtnForAllUsers.AutoEllipsis = true;
             this.rbtnForAllUsers.Checked = true;
             this.rbtnForAllUsers.Location = new System.Drawing.Point(19, 25);
@@ -953,9 +855,9 @@
             // 
             // tvOutlookFolders
             // 
-            this.tvOutlookFolders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tvOutlookFolders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tvOutlookFolders.CheckBoxes = true;
             this.tvOutlookFolders.Location = new System.Drawing.Point(12, 47);
             this.tvOutlookFolders.Name = "tvOutlookFolders";
@@ -1011,8 +913,8 @@
             // 
             // lblFeedForCategories
             // 
-            this.lblFeedForCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFeedForCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFeedForCategories.AutoEllipsis = true;
             this.lblFeedForCategories.Location = new System.Drawing.Point(6, 300);
             this.lblFeedForCategories.Name = "lblFeedForCategories";
@@ -1022,9 +924,9 @@
             // 
             // lstbFeedsForCategories
             // 
-            this.lstbFeedsForCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstbFeedsForCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstbFeedsForCategories.FormattingEnabled = true;
             this.lstbFeedsForCategories.ItemHeight = 20;
             this.lstbFeedsForCategories.Location = new System.Drawing.Point(6, 26);
@@ -1050,9 +952,9 @@
             // 
             // chklstbCategories
             // 
-            this.chklstbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.chklstbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chklstbCategories.FormattingEnabled = true;
             this.chklstbCategories.Location = new System.Drawing.Point(10, 26);
             this.chklstbCategories.Name = "chklstbCategories";
@@ -1072,8 +974,8 @@
             // 
             // txtbNewCategoryName
             // 
-            this.txtbNewCategoryName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbNewCategoryName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbNewCategoryName.Location = new System.Drawing.Point(198, 295);
             this.txtbNewCategoryName.Name = "txtbNewCategoryName";
             this.txtbNewCategoryName.Size = new System.Drawing.Size(160, 28);
@@ -1103,17 +1005,16 @@
             this.btnCategoriesAdd.UseVisualStyleBackColor = true;
             this.btnCategoriesAdd.Click += new System.EventHandler(this.btnCategoriesAdd_Click);
             // 
-            // SettingsDialog
+            // SettingsDialogUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 808);
             this.Controls.Add(this.spltcMain);
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(18, 570);
-            this.Name = "SettingsDialog";
-            this.Text = "RSS feeds Settings";
+            this.Name = "SettingsDialogUC";
+            this.Size = new System.Drawing.Size(1055, 808);
             this.Load += new System.EventHandler(this.SettingsDialog_Load);
             this.gpNewFeed.ResumeLayout(false);
             this.tbNewFeeds.ResumeLayout(false);
@@ -1121,7 +1022,6 @@
             this.tpStandardFeeds.PerformLayout();
             this.gbEncodings.ResumeLayout(false);
             this.gbEncodings.PerformLayout();
-            this.tpCustomFeeds.ResumeLayout(false);
             this.pnlRSSSettings.ResumeLayout(false);
             this.gbavailableFeeds.ResumeLayout(false);
             this.gbavailableFeeds.PerformLayout();
@@ -1192,9 +1092,6 @@
         private System.Windows.Forms.Label lblSaveTime;
         private System.Windows.Forms.TabControl tbNewFeeds;
         private System.Windows.Forms.TabPage tpStandardFeeds;
-        private System.Windows.Forms.TabPage tpCustomFeeds;
-        private System.Windows.Forms.RadioButton rbCustomFeedGmail;
-        private System.Windows.Forms.Button btnAddRSSCustom;
         private System.Windows.Forms.Button btnClearAllHistories;
         private System.Windows.Forms.CheckBox chkbRSSSaveToDiskOnRefresh;
         private System.Windows.Forms.CheckBox chkbTaskBarIcon;
@@ -1219,10 +1116,6 @@
         private System.Windows.Forms.CheckedListBox chklstbCategories;
         private System.Windows.Forms.ComboBox cbCodepages;
         private System.Windows.Forms.GroupBox gbEncodings;
-        private System.Windows.Forms.RadioButton rbCustomFeedFBWall;
-        private System.Windows.Forms.RadioButton rbCustomFeedFBReaderSourceForgeFiles;
-        private System.Windows.Forms.RadioButton rbCustomFeedFBReaderFBWall;
-        private System.Windows.Forms.RadioButton rbCustomFeedSourceForgeFiles;
         private System.Windows.Forms.Label lblColor;
         private System.Windows.Forms.CheckBox chkColorUnreadPosts;
         private System.Windows.Forms.CheckBox chkBoldUnreadPosts;

@@ -38,8 +38,6 @@ namespace Analogy.LogViewer.RSSReader.UI
 
             InitializeComponent();
 
-            rbtnPerUsers.Text = "Per User (files will be saved in the following folder: " + Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile),
-                                                    @"AppData\local\LB Desktop Aggregator)");
             FeedsContainer = feedsGroup;
             Settings = settings;
             pnlGeneralSettings.Visible = true;
@@ -265,50 +263,6 @@ namespace Analogy.LogViewer.RSSReader.UI
                 IRSSFeed feed = FeedsContainer[feedindex];
                 var posts = new FeedInformationDialog(FeedsContainer, feed, Settings, !Settings.AppRSSSetings.NotifyOnRSSErrors).ShowDialog();
 
-            }
-        }
-
-        private void btnAddRSSCustom_Click(object sender, EventArgs e)
-        {
-            IRSSFeed newFeed = null;
-            if (rbCustomFeedGmail.Checked)
-            {
-
-                //AddGmailFeed newGmail = new AddGmailFeed();
-                //DialogResult result = newGmail.ShowDialog();
-                //if (result == DialogResult.OK)
-                //    if (newGmail.GmailFeed != null)
-                //    {
-                //        newFeed = newGmail.GmailFeed;
-                //    }
-            }
-            else if (rbCustomFeedFBWall.Checked)
-            {
-                newFeed = new RSSFeed(@"http://www.facebook.com/feeds/page.php?id=265339816820568&format=rss20",
-                                                 false, true, Encoding.UTF8, "RSS Aggregator Facebook Wall");
-
-
-            }
-            else if (rbCustomFeedSourceForgeFiles.Checked)
-            {
-                newFeed = new RSSFeed(@"https://sourceforge.net/api/file/index/project-id/595114/mtime/desc/limit/20/rss",
-                                            false, true, Encoding.UTF8, "RSS Aggregator SourceForge Files");
-            }
-            else if (rbCustomFeedFBReaderFBWall.Checked)
-            {
-                newFeed = new RSSFeed(@"http://www.facebook.com/feeds/page.php?id=217847334952654&format=rss20",
-                                         false, true, Encoding.UTF8, "News Feed Reader Facebook Wall");
-
-            }
-            else if (rbCustomFeedFBReaderSourceForgeFiles.Checked)
-            {
-                newFeed = new RSSFeed(@"https://sourceforge.net/api/file/index/project-id/617350/mtime/desc/limit/20/rss",
-                                                  false, true, Encoding.UTF8, "News Feed Reader SourceForge Files");
-
-            }
-            if (newFeed != null && IsFeedValidOrJustAddToList(newFeed))
-            {
-                SaveFeeds(newFeed);
             }
         }
 

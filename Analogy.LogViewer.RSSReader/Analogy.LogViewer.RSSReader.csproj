@@ -88,12 +88,6 @@
     <Compile Include="UI\RSSItemViewer.Designer.cs">
       <DependentUpon>RSSItemViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\SettingsDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\SettingsDialog.Designer.cs">
-      <DependentUpon>SettingsDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\SettingsDialogUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,9 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RSSItemViewer.resx">
       <DependentUpon>RSSItemViewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\SettingsDialog.resx">
-      <DependentUpon>SettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SettingsDialogUC.resx">
       <DependentUpon>SettingsDialogUC.cs</DependentUpon>

@@ -26,6 +26,17 @@ namespace Analogy.LogViewer.RSSReader.Core
 
     public class OnlineRSSReader : IAnalogyRealTimeDataProvider
     {
+        public Task InitializeDataProviderAsync()
+        {
+            Featcher = new WebFetcher();
+            return Task.CompletedTask;
+        }
+
+        public void MessageOpened(AnalogyLogMessage message)
+        {
+            //nop
+        }
+
         public Guid ID { get; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
         public string OptionalTitle { get; } = "Analogy RSS Reader";
         public IAnalogyOfflineDataProvider FileOperationsHandler { get; }
@@ -39,10 +50,7 @@ namespace Analogy.LogViewer.RSSReader.Core
         private Task FeatcherTask;
         private RSSFeedsContainer RSSContainer = ComponentsContainer.Instance.RSSFeedsContainer;
         private AppSettings Settings = ComponentsContainer.Instance.AppSettings;
-        public void InitDataProvider()
-        {
-            Featcher = new WebFetcher();
-        }
+        
         public void StartReceiving()
         {
             FeatcherTask = Task.Factory.StartNew(async () =>

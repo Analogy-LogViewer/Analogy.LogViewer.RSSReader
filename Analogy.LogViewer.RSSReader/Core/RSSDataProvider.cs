@@ -26,7 +26,7 @@ namespace Analogy.LogViewer.RSSReader.Core
 
     public class OnlineRSSReader : IAnalogyRealTimeDataProvider
     {
-        public Task InitializeDataProviderAsync()
+        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             Featcher = new WebFetcher();
             return Task.CompletedTask;

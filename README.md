@@ -1,2 +1,2 @@
-# Analogy.LogViewer.RSSReader <img src="./Assets/AnalogyRSS.png" align="right" width="175px" height="175px">
+# Analogy.RSSReader  [![Build Status](https://dev.azure.com/Analogy-LogViewer/Analogy%20Log%20Viewer/_apis/build/status/Analogy-LogViewer.Analogy.LogViewer.RSSReader?branchName=master)](https://dev.azure.com/Analogy-LogViewer/Analogy%20Log%20Viewer/_build/latest?definitionId=7&branchName=master) <img src="./Assets/AnalogyRSS.png" align="right" width="175px" height="175px">
 RSS Reader for Analogy Log Viewer

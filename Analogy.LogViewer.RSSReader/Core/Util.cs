@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Analogy.LogViewer.RSSReader.Core
@@ -60,7 +56,7 @@ namespace Analogy.LogViewer.RSSReader.Core
                 {
                     using (Stream myReader = File.Open(filename, FileMode.Open, FileAccess.Read))
                     {
-                        return (T)myformatter.Deserialize(myReader, null);
+                        return (T)myformatter.Deserialize(myReader);
                     }
                 }
                 catch (Exception ex)

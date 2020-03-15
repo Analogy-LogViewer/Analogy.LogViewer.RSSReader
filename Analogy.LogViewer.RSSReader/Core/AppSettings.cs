@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Analogy.LogViewer.RSSReader.Core
 {
@@ -211,7 +208,7 @@ namespace Analogy.LogViewer.RSSReader.Core
                 {
                     using (Stream myReader = File.Open(settingsfilefullpath, FileMode.Open, FileAccess.Read))
                     {
-                        return (AppSettings)myformatter.Deserialize(myReader, null);
+                        return (AppSettings)myformatter.Deserialize(myReader);
                     }
                 }
                 catch (Exception ex)

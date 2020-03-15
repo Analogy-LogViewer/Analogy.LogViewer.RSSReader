@@ -60,7 +60,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="..\..\Analogy.LogViewer.RSSReader - Copy\Analogy.LogViewer.RSSReader\Resources\AnalogyRSS.png">
+    <None Include="..\AnalogyRSS.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\Analogy.LogViewer.RSSReader\Analogy.LogViewer.RSSReader\Resources\AnalogyRSS.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

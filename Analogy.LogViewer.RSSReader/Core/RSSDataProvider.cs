@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Analogy.DataProviders.Extensions;
+﻿using Analogy.DataProviders.Extensions;
 using Analogy.Interfaces;
 using Analogy.Interfaces.Factories;
 using Analogy.LogViewer.RSSReader.Properties;
 using Analogy.LogViewer.RSSReader.UI;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Analogy.LogViewer.RSSReader.Core
 {
@@ -50,7 +49,7 @@ namespace Analogy.LogViewer.RSSReader.Core
         private Task FeatcherTask;
         private RSSFeedsContainer RSSContainer = ComponentsContainer.Instance.RSSFeedsContainer;
         private AppSettings Settings = ComponentsContainer.Instance.AppSettings;
-        
+
         public void StartReceiving()
         {
             FeatcherTask = Task.Factory.StartNew(async () =>
@@ -105,6 +104,8 @@ namespace Analogy.LogViewer.RSSReader.Core
 
         public string Title { get; } = "Analogy RSS Feed Settings";
         public UserControl DataProviderSettings => new SettingsDialogUC(ComponentsContainer.Instance.RSSFeedsContainer, ComponentsContainer.Instance.AppSettings);
-        public Image Icon { get; } = Resources.AnalogyRSS32x32Transparent;
+        public Guid FactoryId { get; set; } = RSSFactory.rssFactoryId;
+        public Image SmallImage { get; } = Resources.AnalogyRSS16x16;
+        public Image LargeImage { get; } = Resources.AnalogyRSS32x32Transparent;
     }
 }

@@ -101,7 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Analogy.DataProviders.Extensions">
-      <Version>1.0.4.2</Version>
+      <Version>1.0.4.3</Version>
     </PackageReference>
     <PackageReference Include="Analogy.LogViewer.Interfaces">
       <Version>2.1.8</Version>
@@ -305,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnalogyRSS32x32Transparent.ico" />
+    <None Include="Resources\AnalogyRSS16x16.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

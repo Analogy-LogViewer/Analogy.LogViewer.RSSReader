@@ -14,13 +14,10 @@ namespace Analogy.LogViewer.RSSReader.Core
 {
     public class RSSDataProvider : IAnalogyDataProvidersFactory
     {
+        public Guid FactoryId { get; } = RSSFactory.rssFactoryId;
         public string Title { get; } = "Analogy RSS Reader";
-        public IEnumerable<IAnalogyDataProvider> Items { get; }
+        public IEnumerable<IAnalogyDataProvider> DataProviders { get; } = new List<IAnalogyDataProvider> { new OnlineRSSReader() };
 
-        public RSSDataProvider()
-        {
-            Items = new List<IAnalogyDataProvider> { new OnlineRSSReader() };
-        }
     }
 
     public class OnlineRSSReader : IAnalogyRealTimeDataProvider

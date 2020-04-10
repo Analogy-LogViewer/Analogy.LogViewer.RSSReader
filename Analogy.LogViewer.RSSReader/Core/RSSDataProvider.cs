@@ -102,6 +102,7 @@ namespace Analogy.LogViewer.RSSReader.Core
         public string Title { get; } = "Analogy RSS Feed Settings";
         public UserControl DataProviderSettings => new SettingsDialogUC(ComponentsContainer.Instance.RSSFeedsContainer, ComponentsContainer.Instance.AppSettings);
         public Guid FactoryId { get; set; } = RSSFactory.rssFactoryId;
+        public Guid ID { get; set; } = new Guid("5543D343-26B1-42FC-889D-A573202A2D35");
         public Image SmallImage { get; } = Resources.AnalogyRSS16x16;
         public Image LargeImage { get; } = Resources.AnalogyRSS32x32Transparent;
     }

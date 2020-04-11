@@ -11,7 +11,7 @@
     <ApplicationIcon />
     <StartupObject />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <Authors>Lior Banai</Authors>
     <Copyright>Lior Banai ©  2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="Analogy.DataProviders.Extensions" Version="1.1.0" />
-    <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.2.0" />
+    <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.2.1" />
     <PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

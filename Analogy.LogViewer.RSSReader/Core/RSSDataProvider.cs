@@ -32,11 +32,15 @@ namespace Analogy.LogViewer.RSSReader.Core
         {
             //nop
         }
+        public bool UseCustomColors { get; set; } = false;
+        public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+            => Array.Empty<(string, string)>();
 
+        public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+            => (Color.Empty, Color.Empty);
         public Guid ID { get; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
         public string OptionalTitle { get; } = "Analogy RSS Reader";
         public IAnalogyOfflineDataProvider FileOperationsHandler { get; }
-        public bool IsConnected { get; }
         public event EventHandler<AnalogyDataSourceDisconnectedArgs> OnDisconnected;
         public event EventHandler<AnalogyLogMessageArgs> OnMessageReady;
         public event EventHandler<AnalogyLogMessagesArgs> OnManyMessagesReady;

@@ -523,6 +523,26 @@ namespace Analogy.LogViewer.RSSReader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rss_icon_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("rss_icon_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rss_icon_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("rss_icon_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rss_icon_transparent {
             get {
                 object obj = ResourceManager.GetObject("rss_icon_transparent", resourceCulture);

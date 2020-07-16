@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>netcoreapp3.1;net472</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net472;net471</TargetFrameworks>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
@@ -11,7 +11,7 @@
     <ApplicationIcon />
     <StartupObject />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.5</Version>
+    <Version>1.1.6</Version>
     <Authors>Lior Banai</Authors>
     <Copyright>Lior Banai ©  2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -20,10 +20,11 @@
     <PackageIconUrl />
     <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.RSSReader</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <FileVersion>1.1.6.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Analogy.DataProviders.Extensions" Version="1.1.6" />
+    <PackageReference Include="Analogy.DataProviders.Extensions" Version="1.1.7" />
     <PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.3.1" />
     <PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>

@@ -11,7 +11,7 @@
     <ApplicationIcon />
     <StartupObject />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.6</Version>
+    <Version>1.1.7</Version>
     <Authors>Lior Banai</Authors>
     <Copyright>Lior Banai ©  2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -20,7 +20,7 @@
     <PackageIconUrl />
     <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.RSSReader</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <FileVersion>1.1.6.0</FileVersion>
+    <FileVersion>1.1.7.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

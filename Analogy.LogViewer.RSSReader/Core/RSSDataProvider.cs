@@ -15,7 +15,7 @@ namespace Analogy.LogViewer.RSSReader.Core
     public class RSSDataProvider : IAnalogyDataProvidersFactory
     {
         public Guid FactoryId { get; } = RSSFactory.rssFactoryId;
-        public string Title { get; } = "Analogy RSS Reader";
+        public string Title { get; } = "RSS Reader";
         public IEnumerable<IAnalogyDataProvider> DataProviders { get; } = new List<IAnalogyDataProvider> { new OnlineRSSReader() };
 
     }
@@ -39,7 +39,7 @@ namespace Analogy.LogViewer.RSSReader.Core
         public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
         public Guid ID { get; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
-        public string OptionalTitle { get; } = "Analogy RSS Reader";
+        public string OptionalTitle { get; } = "RSS Reader";
         public IAnalogyOfflineDataProvider FileOperationsHandler { get; }
         public event EventHandler<AnalogyDataSourceDisconnectedArgs> OnDisconnected;
         public event EventHandler<AnalogyLogMessageArgs> OnMessageReady;
@@ -103,7 +103,7 @@ namespace Analogy.LogViewer.RSSReader.Core
             return Task.CompletedTask;
         }
 
-        public string Title { get; } = "Analogy RSS Feed Settings";
+        public string Title { get; } = "RSS Feed Settings";
         public UserControl DataProviderSettings => new SettingsDialogUC(ComponentsContainer.Instance.RSSFeedsContainer, ComponentsContainer.Instance.AppSettings);
         public Guid FactoryId { get; set; } = RSSFactory.rssFactoryId;
         public Guid ID { get; set; } = new Guid("5543D343-26B1-42FC-889D-A573202A2D35");

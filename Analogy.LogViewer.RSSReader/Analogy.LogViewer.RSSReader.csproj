@@ -11,7 +11,7 @@
 		<ApplicationIcon />
 		<StartupObject />
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.1.7.1</Version>
+		<Version>1.1.7.2</Version>
 		<Authors>Lior Banai</Authors>
 		<Copyright>Lior Banai ©  2020</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -20,7 +20,7 @@
 		<PackageIconUrl />
 		<RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.RSSReader</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<FileVersion>1.1.7.1</FileVersion>
+		<FileVersion>1.1.7.2</FileVersion>
 		<Company>Analogy.LogViewer</Company>
 		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 	</PropertyGroup>
@@ -36,7 +36,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="System.Resources.Extensions" Version="4.6.0"/>
+		<PackageReference Include="System.Resources.Extensions" Version="4.6.0" />
 	</ItemGroup>
 
 	<ItemGroup>

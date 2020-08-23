@@ -47,30 +47,27 @@ namespace Analogy.LogViewer.RSSReader.Core
 
         private WebFetcher Featcher { get; set; }
         public Task<bool> CanStartReceiving() => Task.FromResult(true);
-        private Task FeatcherTask;
         private RSSFeedsContainer RSSContainer = ComponentsContainer.Instance.RSSFeedsContainer;
         private AppSettings Settings = ComponentsContainer.Instance.AppSettings;
 
-        public void StartReceiving()
+        public async Task StartReceiving()
         {
-            FeatcherTask = Task.Factory.StartNew(async () =>
-            {
-                var feeds = RSSContainer.GetNonDisabledFeeds().ToList();
-                if (feeds.Any())
 
+            var feeds = RSSContainer.GetNonDisabledFeeds().ToList();
+            if (feeds.Any())
+
+            {
+                var posts = await Featcher.GetRSSItemsFromFeeds(feeds, false, true);
+                foreach (IRSSPost post in posts)
                 {
-                    var posts = await Featcher.GetRSSItemsFromFeeds(feeds, false, true);
-                    foreach (IRSSPost post in posts)
-                    {
-                        AnalogyLogMessage m = CreateAnalogyMessageFromPost(post);
-                        OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, post.Url, post.Url, ID));
-                    }
+                    AnalogyLogMessage m = CreateAnalogyMessageFromPost(post);
+                    OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, post.Url, post.Url, ID));
                 }
-                else
-                {
-                    await Task.Delay(Settings.AppRSSSetings.IntervalMinutes * 60 * 1000);
-                }
-            });
+            }
+            else
+            {
+                await Task.Delay(Settings.AppRSSSetings.IntervalMinutes * 60 * 1000);
+            }
         }
 
         private AnalogyLogMessage CreateAnalogyMessageFromPost(IRSSPost post)
@@ -87,10 +84,8 @@ namespace Analogy.LogViewer.RSSReader.Core
             };
         }
 
-        public void StopReceiving()
-        {
-            //
-        }
+        public Task StopReceiving() => Task.CompletedTask;
+
 
 
     }

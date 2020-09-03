@@ -38,7 +38,12 @@ namespace Analogy.LogViewer.RSSReader.Core
 
         public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
-        public Guid ID { get; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
+        public Guid Id { get; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
+
+        public Image ConnectedLargeImage { get; } = null;
+        public Image ConnectedSmallImage { get; } = null;
+        public Image DisconnectedLargeImage { get; } = null;
+        public Image DisconnectedSmallImage { get; } = null;
         public string OptionalTitle { get; } = "RSS Reader";
         public IAnalogyOfflineDataProvider FileOperationsHandler { get; }
         public event EventHandler<AnalogyDataSourceDisconnectedArgs> OnDisconnected;
@@ -61,7 +66,7 @@ namespace Analogy.LogViewer.RSSReader.Core
                 foreach (IRSSPost post in posts)
                 {
                     AnalogyLogMessage m = CreateAnalogyMessageFromPost(post);
-                    OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, post.Url, post.Url, ID));
+                    OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, post.Url, post.Url, Id));
                 }
             }
             else

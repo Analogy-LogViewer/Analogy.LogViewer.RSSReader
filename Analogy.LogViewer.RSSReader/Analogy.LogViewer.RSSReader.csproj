@@ -11,23 +11,22 @@
 		<ApplicationIcon />
 		<StartupObject />
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.1.7.2</Version>
+		<Version>1.1.7.4</Version>
 		<Authors>Lior Banai</Authors>
-		<Copyright>Lior Banai ©  2020</Copyright>
+		<Copyright>Lior Banai © 2020</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.RSSReader</PackageProjectUrl>
 		<PackageIcon>AnalogyRSS.png</PackageIcon>
 		<PackageIconUrl />
 		<RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.RSSReader</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<FileVersion>1.1.7.2</FileVersion>
+		<FileVersion>1.1.7.4</FileVersion>
 		<Company>Analogy.LogViewer</Company>
 		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 	</PropertyGroup>
 
 	<ItemGroup>
-
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.3.2.6" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.4.3" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

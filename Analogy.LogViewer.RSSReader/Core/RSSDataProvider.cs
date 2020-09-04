@@ -38,7 +38,12 @@ namespace Analogy.LogViewer.RSSReader.Core
 
         public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
-        public Guid ID { get; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
+        public Guid Id { get; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
+
+        public Image ConnectedLargeImage { get; } = null;
+        public Image ConnectedSmallImage { get; } = null;
+        public Image DisconnectedLargeImage { get; } = null;
+        public Image DisconnectedSmallImage { get; } = null;
         public string OptionalTitle { get; } = "RSS Reader";
         public IAnalogyOfflineDataProvider FileOperationsHandler { get; }
         public event EventHandler<AnalogyDataSourceDisconnectedArgs> OnDisconnected;
@@ -47,30 +52,27 @@ namespace Analogy.LogViewer.RSSReader.Core
 
         private WebFetcher Featcher { get; set; }
         public Task<bool> CanStartReceiving() => Task.FromResult(true);
-        private Task FeatcherTask;
         private RSSFeedsContainer RSSContainer = ComponentsContainer.Instance.RSSFeedsContainer;
         private AppSettings Settings = ComponentsContainer.Instance.AppSettings;
 
-        public void StartReceiving()
+        public async Task StartReceiving()
         {
-            FeatcherTask = Task.Factory.StartNew(async () =>
-            {
-                var feeds = RSSContainer.GetNonDisabledFeeds().ToList();
-                if (feeds.Any())
 
+            var feeds = RSSContainer.GetNonDisabledFeeds().ToList();
+            if (feeds.Any())
+
+            {
+                var posts = await Featcher.GetRSSItemsFromFeeds(feeds, false, true);
+                foreach (IRSSPost post in posts)
                 {
-                    var posts = await Featcher.GetRSSItemsFromFeeds(feeds, false, true);
-                    foreach (IRSSPost post in posts)
-                    {
-                        AnalogyLogMessage m = CreateAnalogyMessageFromPost(post);
-                        OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, post.Url, post.Url, ID));
-                    }
+                    AnalogyLogMessage m = CreateAnalogyMessageFromPost(post);
+                    OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, post.Url, post.Url, Id));
                 }
-                else
-                {
-                    await Task.Delay(Settings.AppRSSSetings.IntervalMinutes * 60 * 1000);
-                }
-            });
+            }
+            else
+            {
+                await Task.Delay(Settings.AppRSSSetings.IntervalMinutes * 60 * 1000);
+            }
         }
 
         private AnalogyLogMessage CreateAnalogyMessageFromPost(IRSSPost post)
@@ -87,10 +89,8 @@ namespace Analogy.LogViewer.RSSReader.Core
             };
         }
 
-        public void StopReceiving()
-        {
-            //
-        }
+        public Task StopReceiving() => Task.CompletedTask;
+
 
 
     }

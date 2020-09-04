@@ -1,10 +1,10 @@
-﻿using Analogy.DataProviders.Extensions;
-using Analogy.LogViewer.RSSReader.Core;
+﻿using Analogy.LogViewer.RSSReader.Core;
 using Analogy.LogViewer.RSSReader.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.RSSReader
 {

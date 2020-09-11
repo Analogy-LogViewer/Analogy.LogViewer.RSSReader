@@ -82,7 +82,7 @@ namespace Analogy.LogViewer.RSSReader.Core
                 Class = AnalogyLogClass.General,
                 Date = post.Date ?? DateTime.MinValue,
                 FileName = post.FeedName,
-                Level = AnalogyLogLevel.Event,
+                Level = AnalogyLogLevel.Information,
                 Source = post.Url,
                 Text = post.Title + Environment.NewLine + post.Description
             };

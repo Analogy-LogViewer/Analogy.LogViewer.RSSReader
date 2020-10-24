@@ -10,6 +10,11 @@ namespace Analogy.LogViewer.RSSReader.Core
     public class RSSFactory : IAnalogyFactory
     {
         internal static Guid rssFactoryId = new Guid("5BCE8AE3-D46D-4782-B4EE-A12B15E59648");
+        public void RegisterNotificationCallback(INotificationReporter notificationReporter)
+        {
+            
+        }
+
         public Guid FactoryId { get; set; } = rssFactoryId;
         public string Title { get; set; } = "RSS Reader";
         public IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = ChangeLogList.GetChangeLog();

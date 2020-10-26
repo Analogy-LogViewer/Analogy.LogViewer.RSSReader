@@ -9,13 +9,13 @@ namespace Analogy.LogViewer.RSSReader.Core
 {
     public class RSSFactory : IAnalogyFactory
     {
-        internal static Guid rssFactoryId = new Guid("5BCE8AE3-D46D-4782-B4EE-A12B15E59648");
+        internal static Guid Id = new Guid("5BCE8AE3-D46D-4782-B4EE-A12B15E59648");
         public void RegisterNotificationCallback(INotificationReporter notificationReporter)
         {
             
         }
 
-        public Guid FactoryId { get; set; } = rssFactoryId;
+        public Guid FactoryId { get; set; } = Id;
         public string Title { get; set; } = "RSS Reader";
         public IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = ChangeLogList.GetChangeLog();
         public Image LargeImage { get; set; } = Resources.AnalogyRSS32x32;

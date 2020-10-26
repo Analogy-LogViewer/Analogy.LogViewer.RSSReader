@@ -13,7 +13,7 @@ namespace Analogy.LogViewer.RSSReader.Core
 {
     public class RSSDataProvider : IAnalogyDataProvidersFactory
     {
-        public Guid FactoryId { get; set; } = RSSFactory.rssFactoryId;
+        public Guid FactoryId { get; set; } = RSSFactory.Id;
         public string Title { get; set; } = "RSS Reader";
         public IEnumerable<IAnalogyDataProvider> DataProviders { get; } = new List<IAnalogyDataProvider> { new OnlineRSSReader() };
 
@@ -104,7 +104,7 @@ namespace Analogy.LogViewer.RSSReader.Core
 
         public string Title { get; set; } = "RSS Feed Settings";
         public UserControl DataProviderSettings => new SettingsDialogUC(ComponentsContainer.Instance.RSSFeedsContainer, ComponentsContainer.Instance.AppSettings);
-        public Guid FactoryId { get; set; } = RSSFactory.rssFactoryId;
+        public Guid FactoryId { get; set; } = RSSFactory.Id;
         public Guid Id { get; set; } = new Guid("5543D343-26B1-42FC-889D-A573202A2D35");
         public Image SmallImage { get; set; } = Resources.AnalogyRSS16x16;
         public Image LargeImage { get; set; } = Resources.AnalogyRSS32x32Transparent;

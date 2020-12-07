@@ -54,7 +54,9 @@ namespace Analogy.LogViewer.RSSReader.Core
         {
             FeedsInCategory.Remove(feed);
             if (feed.BelongsToCategories.Contains(this))
+            {
                 feed.RemoveFromCategory(this);
+            }
         }
     }
 }

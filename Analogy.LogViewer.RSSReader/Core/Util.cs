@@ -19,7 +19,9 @@ namespace Analogy.LogViewer.RSSReader.Core
             foreach (string order in orders)
             {
                 if (kbytes > max)
+                {
                     return String.Format("{0:##.###} {1}", Decimal.Divide(kbytes, max), order);
+                }
 
                 max /= scale;
             }
@@ -34,7 +36,10 @@ namespace Analogy.LogViewer.RSSReader.Core
             try
             {
                 if (dirpath != null && !(Directory.Exists(dirpath)))
+                {
                     Directory.CreateDirectory(dirpath);
+                }
+
                 using (Stream myWriter = File.Open(filename, FileMode.Create, FileAccess.ReadWrite))
                 {
 
@@ -52,6 +57,7 @@ namespace Analogy.LogViewer.RSSReader.Core
             BinaryFormatter myformatter = new BinaryFormatter();
 
             if (File.Exists(filename))
+            {
                 try
                 {
                     using (Stream myReader = File.Open(filename, FileMode.Open, FileAccess.Read))
@@ -65,6 +71,8 @@ namespace Analogy.LogViewer.RSSReader.Core
                     return new T();
 
                 }
+            }
+
             return new T();
         }
 
@@ -94,7 +102,9 @@ namespace Analogy.LogViewer.RSSReader.Core
                 cnt.BeginInvoke(new MethodInvoker(() => UpdateControl(cnt, text)));
             }
             else
+            {
                 cnt.Text = text;
+            }
         }
 
         ///// <summary>

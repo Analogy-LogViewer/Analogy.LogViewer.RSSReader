@@ -72,14 +72,20 @@ namespace Analogy.LogViewer.RSSReader.Core
         public IEnumerable<IRSSFeed> GetFeeds()
         {
             if (Feeds == null)
+            {
                 Feeds = new List<IRSSFeed>(0);
+            }
+
             return Feeds;
         }
 
         public IEnumerable<IRSSFeed> GetNonDisabledFeeds()
         {
             if (Feeds == null)
+            {
                 Feeds = new List<IRSSFeed>(0);
+            }
+
             RssLock.EnterReadLock();
             try
             {
@@ -131,7 +137,10 @@ namespace Analogy.LogViewer.RSSReader.Core
         public void AddCategory(IRSSCategory category)
         {
             if (Categories == null)
+            {
                 Categories = new BindingList<IRSSCategory>();
+            }
+
             if (Categories.Contains(category))
             {
                 var msg = string.Format("The category {0} already exists.", category.CategoryName);
@@ -145,7 +154,9 @@ namespace Analogy.LogViewer.RSSReader.Core
         public void RemoveCategory(IRSSCategory category)
         {
             if (Categories == null)
+            {
                 Categories = new BindingList<IRSSCategory>();
+            }
 
             if (category.FeedsCount > 0)
             {

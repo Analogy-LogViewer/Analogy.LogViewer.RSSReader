@@ -29,7 +29,11 @@ namespace Analogy.LogViewer.RSSReader.Core
         {
             get
             {
-                if (BelongsToFeed == null) return string.Empty;
+                if (BelongsToFeed == null)
+                {
+                    return string.Empty;
+                }
+
                 return BelongsToFeed.RSSName;
             }
         }
@@ -68,16 +72,35 @@ namespace Analogy.LogViewer.RSSReader.Core
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType().BaseType != typeof(AbstractRSSPost)) return false;
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType().BaseType != typeof(AbstractRSSPost))
+            {
+                return false;
+            }
+
             return Equals((AbstractRSSPost)obj);
         }
 
         public bool Equals(AbstractRSSPost other)
         {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
 
             bool contentComparison = (IgnorePostContentInComparison) || (Equals(other.Content, Content) && Equals(other.Description, Description));
             return other.Date.Equals(Date) && Equals(other.Title, Title) &&

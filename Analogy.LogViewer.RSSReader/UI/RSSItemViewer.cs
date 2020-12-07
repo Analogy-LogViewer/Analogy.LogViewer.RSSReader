@@ -43,7 +43,9 @@ namespace Analogy.LogViewer.RSSReader.UI
             chkbHistory.Checked = Post.IgnorePostContentInComparison;
             string link = string.Empty;
             if (!string.IsNullOrEmpty(Post.Link))
+            {
                 link = string.Format("<a href=\"{0}\">Link</a>", Post.Link);
+            }
 
             Text = Post.Title;
 
@@ -119,7 +121,9 @@ namespace Analogy.LogViewer.RSSReader.UI
             try
             {
                 if (Util.IsValidUrl(url))
+                {
                     Process.Start(url);
+                }
             }
             catch (Exception)
             {
@@ -142,18 +146,19 @@ namespace Analogy.LogViewer.RSSReader.UI
                 var result = saveFileDialoglist.ShowDialog();
                 if (result == DialogResult.OK)
                     // If the file name is not an empty string open it for saving.
+                {
                     if (saveFileDialoglist.FileName != "")
                     {
                         try
                         {
 
                             File.WriteAllText(saveFileDialoglist.FileName, wbPostView.Document.Body.Parent.OuterHtml,
-                                              Encoding.GetEncoding(wbPostView.Document.Encoding));
+                                Encoding.GetEncoding(wbPostView.Document.Encoding));
                             MessageShow.ShowMessage(this,
-                                                    "Post Content was saved to file:\n" +
-                                                    saveFileDialoglist.FileName,
-                                                    "Operation completed Successfully", MessageBoxButtons.OK,
-                                                    MessageBoxIcon.Information);
+                                "Post Content was saved to file:\n" +
+                                saveFileDialoglist.FileName,
+                                "Operation completed Successfully", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
 
                         }
                         catch (Exception ex)
@@ -162,6 +167,7 @@ namespace Analogy.LogViewer.RSSReader.UI
                             MessageShow.ShowException(this, ex);
                         }
                     }
+                }
             }
         }
 

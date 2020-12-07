@@ -68,8 +68,11 @@ namespace Analogy.LogViewer.RSSReader.UI
                 foreach (var columnname in Settings.AppGUISettings.RSSColumnsVisibleStatus)
                 {
                     if (dgvRSSPosts.Columns.Contains(columnname.Key))
+                    {
                         dgvRSSPosts.Columns[columnname.Key].Visible = columnname.Value.Visible;
-                        dgvRSSPosts.Columns[columnname.Key].HeaderText = columnname.Value.HeaderText;
+                    }
+
+                    dgvRSSPosts.Columns[columnname.Key].HeaderText = columnname.Value.HeaderText;
                 }
 
                 string title = Util.GetPropertyName(((IRSSPost itm) => itm.Title));
@@ -219,13 +222,17 @@ namespace Analogy.LogViewer.RSSReader.UI
                 {
                     IRSSCategory cat = chklstbCategories.SelectedItem as IRSSCategory;
                     if (cat != null)
+                    {
                         Feed.AddToCategory(cat);
+                    }
                 }
                 else if (e.NewValue == CheckState.Unchecked)
                 {
                     IRSSCategory cat = chklstbCategories.SelectedItem as IRSSCategory;
                     if (cat != null)
+                    {
                         Feed.RemoveFromCategory(cat);
+                    }
                 }
                 OnFeedActiveStatusChanged(this, new FeedArgs(FeedsContainer[e.Index], false));
             }

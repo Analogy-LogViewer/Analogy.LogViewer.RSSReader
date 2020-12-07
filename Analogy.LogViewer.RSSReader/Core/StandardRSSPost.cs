@@ -39,7 +39,9 @@ namespace Analogy.LogViewer.RSSReader.Core
             // can't be parsed into a valid date, the Date property is set to null
             DateTime result;
             if (DateTime.TryParse(GetElementValue(post, "pubDate"), out result))
+            {
                 Date = (DateTime?)result;
+            }
 
             Read = false;
             AddedDate = DateTime.Now;
@@ -69,7 +71,10 @@ namespace Analogy.LogViewer.RSSReader.Core
             //return result != null ? result.Value : string.Empty;
 
             if (element?.Element(name) == null)
+            {
                 return string.Empty;
+            }
+
             return element.Element(name)?.Value;
         }
 

@@ -11,16 +11,30 @@ namespace Analogy.LogViewer.RSSReader.Core
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType().BaseType != typeof(AbstractRSSPost)) return false;
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType().BaseType != typeof(AbstractRSSPost))
+            {
+                return false;
+            }
+
             return Equals((AbstractRSSPost)obj);
         }
 
         public bool Equals(IRSSPost x, IRSSPost y)
         {
             if (x == null || y == null)
+            {
                 return x == y;
+            }
 
             return x.Date.Equals(y.Date) && x.Title.Equals(y.Title) &&
                    x.Url.Equals(y.Url) && x.Link.Equals(y.Link) && x.Creator.Equals(y.Creator) &&
@@ -30,7 +44,9 @@ namespace Analogy.LogViewer.RSSReader.Core
         public int GetHashCode(IRSSPost obj)
         {
             if (obj == null)
+            {
                 throw new ArgumentNullException();
+            }
 
             unchecked
             {

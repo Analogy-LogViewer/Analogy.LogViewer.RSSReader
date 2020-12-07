@@ -61,7 +61,9 @@ namespace Analogy.LogViewer.RSSReader.UI
             LoadFeedsForCategories();
 
             if (gotoRSSPanel)
+            {
                 lvItems.Items[1].Selected = true;
+            }
 
             #region Events subscribing 
             btnSaveSettings.Click += (sener, e) =>
@@ -95,7 +97,9 @@ namespace Analogy.LogViewer.RSSReader.UI
                                                                                                 MessageBoxIcon.
                                                                                                     Exclamation);
                                                   if (result == DialogResult.Yes)
+                                                  {
                                                       ClearHistories();
+                                                  }
                                               };
 
             #endregion
@@ -173,10 +177,25 @@ namespace Analogy.LogViewer.RSSReader.UI
                 return;
             }
             Encoding encoding = Encoding.UTF8;
-            if (rbEncodingUTF8.Checked) encoding = Encoding.UTF8;
-            if (rbEncodingUTF7.Checked) encoding = Encoding.UTF7;
-            if (rbEncodingUnicode.Checked) encoding = Encoding.Unicode;
-            if (rbEncodingUTF32.Checked) encoding = Encoding.UTF32;
+            if (rbEncodingUTF8.Checked)
+            {
+                encoding = Encoding.UTF8;
+            }
+
+            if (rbEncodingUTF7.Checked)
+            {
+                encoding = Encoding.UTF7;
+            }
+
+            if (rbEncodingUnicode.Checked)
+            {
+                encoding = Encoding.Unicode;
+            }
+
+            if (rbEncodingUTF32.Checked)
+            {
+                encoding = Encoding.UTF32;
+            }
 
             int codepage = (rbcodepage.Checked) ? ((EncodingsCodes.DisplayItem<int>)cbCodepages.SelectedItem).Value : 0;
             IRSSFeed newFeed = new RSSFeed(txtbRSSURL.Text, chkbNewPrivate.Checked, chkbDontKeepHistory.Checked, encoding, txtbRSSName.Text, codepage);
@@ -304,7 +323,9 @@ namespace Analogy.LogViewer.RSSReader.UI
         private void chkbRSSItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Visible)
+            {
                 DisplayItem();
+            }
         }
         private void chkbRSSItems_ItemCheck(object sender, ItemCheckEventArgs e)
         {
@@ -312,9 +333,14 @@ namespace Analogy.LogViewer.RSSReader.UI
             if (e.Index >= 0)
             {
                 if (e.NewValue == CheckState.Checked)
+                {
                     FeedsContainer[e.Index].Active = true;
+                }
                 else if (e.NewValue == CheckState.Unchecked)
+                {
                     FeedsContainer[e.Index].Active = false;
+                }
+
                 OnFeedActiveStatusChanged(this, new FeedArgs(FeedsContainer[e.Index], false));
             }
 
@@ -403,7 +429,9 @@ namespace Analogy.LogViewer.RSSReader.UI
 
             AppSettings.SaveSettings(Settings, false);
             if (updateMainForm)
+            {
                 OnSettingsSaved(this, new Args());
+            }
         }
 
         private bool IsFeedValidOrJustAddToList(IRSSFeed newFeed)
@@ -554,13 +582,17 @@ namespace Analogy.LogViewer.RSSReader.UI
                 {
                     IRSSCategory cat = chklstbCategories.SelectedItem as IRSSCategory;
                     if (cat != null)
+                    {
                         current.AddToCategory(cat);
+                    }
                 }
                 else if (e.NewValue == CheckState.Unchecked)
                 {
                     IRSSCategory cat = chklstbCategories.SelectedItem as IRSSCategory;
                     if (cat != null)
+                    {
                         current.RemoveFromCategory(cat);
+                    }
                 }
 
             }

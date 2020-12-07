@@ -41,16 +41,21 @@ namespace Analogy.LogViewer.RSSReader.Core
         {
             string msg = "Error: " + ex.Message;
             if (ex.InnerException != null)
+            {
                 msg += "\nInner Exceptions:\n" + GetInnerExceptionMessages(ex);
+            }
 
             OnExceptionLogin(sender, new MessageArgs(msg));
 
             if (suppressErrorDisplay)
+            {
                 return DialogResult.Ignore;
+            }
             else
+            {
                 return MessageBox.Show(msg, "Exception Message", MessageBoxButtons.OK, MessageBoxIcon.Error,
-                                   MessageBoxDefaultButton.Button1);
-
+                    MessageBoxDefaultButton.Button1);
+            }
         }
 
         /// <summary>
@@ -94,7 +99,9 @@ namespace Analogy.LogViewer.RSSReader.Core
 
                 inner = inner.InnerException;
                 if (inner != null)
+                {
                     messages += "\n";
+                }
             }
 
             return messages;

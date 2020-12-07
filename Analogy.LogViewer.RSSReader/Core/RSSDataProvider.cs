@@ -11,50 +11,33 @@ using System.Windows.Forms;
 
 namespace Analogy.LogViewer.RSSReader.Core
 {
-    public class RSSDataProvider : IAnalogyDataProvidersFactory
+    public class RSSDataProvider : Template.DataProvidersFactory
     {
-        public Guid FactoryId { get; set; } = RSSFactory.Id;
-        public string Title { get; set; } = "RSS Reader";
-        public IEnumerable<IAnalogyDataProvider> DataProviders { get; } = new List<IAnalogyDataProvider> { new OnlineRSSReader() };
-
+        public override Guid FactoryId { get; set; } = RSSFactory.Id;
+        public override string Title { get; set; } = "RSS Reader";
+        public override IEnumerable<IAnalogyDataProvider> DataProviders { get; set; } = new List<IAnalogyDataProvider> { new OnlineRSSReader() };
     }
 
-    public class OnlineRSSReader : IAnalogyRealTimeDataProvider
+    public class OnlineRSSReader : Template.OnlineDataProvider
     {
-        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
+        public override Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             Featcher = new WebFetcher();
-            return Task.CompletedTask;
+            return base.InitializeDataProviderAsync(logger);
         }
 
-        public void MessageOpened(AnalogyLogMessage message)
-        {
-            //nop
-        }
-        public bool UseCustomColors { get; set; } = false;
-        public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
-            => Array.Empty<(string, string)>();
 
-        public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
-            => (Color.Empty, Color.Empty);
-        public Guid Id { get; set; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
+        public override Guid Id { get; set; } = new Guid("01A17FA2-94F2-46A2-A80A-89AE4893C037");
 
-        public Image ConnectedLargeImage { get; set; } = null;
-        public Image ConnectedSmallImage { get; set; } = null;
-        public Image DisconnectedLargeImage { get; set; } = null;
-        public Image DisconnectedSmallImage { get; set; } = null;
-        public string OptionalTitle { get; set; } = "RSS Reader";
-        public IAnalogyOfflineDataProvider FileOperationsHandler { get; }
-        public event EventHandler<AnalogyDataSourceDisconnectedArgs> OnDisconnected;
-        public event EventHandler<AnalogyLogMessageArgs> OnMessageReady;
-        public event EventHandler<AnalogyLogMessagesArgs> OnManyMessagesReady;
+        public override string OptionalTitle { get; set; } = "RSS Reader";
+        public override IAnalogyOfflineDataProvider FileOperationsHandler { get; set; }
 
         private WebFetcher Featcher { get; set; }
-        public Task<bool> CanStartReceiving() => Task.FromResult(true);
+        public override Task<bool> CanStartReceiving() => Task.FromResult(true);
         private RSSFeedsContainer RSSContainer = ComponentsContainer.Instance.RSSFeedsContainer;
         private AppSettings Settings = ComponentsContainer.Instance.AppSettings;
 
-        public async Task StartReceiving()
+        public override async Task StartReceiving()
         {
 
             var feeds = RSSContainer.GetNonDisabledFeeds().ToList();
@@ -65,7 +48,7 @@ namespace Analogy.LogViewer.RSSReader.Core
                 foreach (IRSSPost post in posts)
                 {
                     AnalogyLogMessage m = CreateAnalogyMessageFromPost(post);
-                    OnMessageReady?.Invoke(this, new AnalogyLogMessageArgs(m, post.Url, post.Url, Id));
+                    MessageReady(this, new AnalogyLogMessageArgs(m, post.Url, post.Url, Id));
                 }
             }
             else
@@ -88,25 +71,23 @@ namespace Analogy.LogViewer.RSSReader.Core
             };
         }
 
-        public Task StopReceiving() => Task.CompletedTask;
-
-
+        public override Task StopReceiving() => Task.CompletedTask;
 
     }
 
-    public class RSSUserSetting : IAnalogyDataProviderSettings
+    public class RSSUserSetting : Template.UserSettingsFactory
     {
-        public Task SaveSettingsAsync()
+        public override Task SaveSettingsAsync()
         {
             AppSettings.SaveSettings(ComponentsContainer.Instance.AppSettings, false);
             return Task.CompletedTask;
         }
 
-        public string Title { get; set; } = "RSS Feed Settings";
-        public UserControl DataProviderSettings => new SettingsDialogUC(ComponentsContainer.Instance.RSSFeedsContainer, ComponentsContainer.Instance.AppSettings);
-        public Guid FactoryId { get; set; } = RSSFactory.Id;
-        public Guid Id { get; set; } = new Guid("5543D343-26B1-42FC-889D-A573202A2D35");
-        public Image SmallImage { get; set; } = Resources.AnalogyRSS16x16;
-        public Image LargeImage { get; set; } = Resources.AnalogyRSS32x32Transparent;
+        public override string Title { get; set; } = "RSS Feed Settings";
+        public override UserControl DataProviderSettings { get; set; }= new SettingsDialogUC(ComponentsContainer.Instance.RSSFeedsContainer, ComponentsContainer.Instance.AppSettings);
+        public override Guid FactoryId { get; set; } = RSSFactory.Id;
+        public override Guid Id { get; set; } = new Guid("5543D343-26B1-42FC-889D-A573202A2D35");
+        public override Image SmallImage { get; set; } = Resources.AnalogyRSS16x16;
+        public override Image LargeImage { get; set; } = Resources.AnalogyRSS32x32Transparent;
     }
 }

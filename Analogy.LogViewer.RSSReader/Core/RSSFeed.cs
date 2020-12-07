@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -31,7 +30,10 @@ namespace Analogy.LogViewer.RSSReader.Core
             {
                 string name = RSSName;
                 if (UnreadItemsCount > 0)
+                {
                     name += string.Format(" ({0})", UnreadItemsCount);
+                }
+
                 return name;
 
             }
@@ -45,7 +47,11 @@ namespace Analogy.LogViewer.RSSReader.Core
                 try
                 {
                     //should be remove later on
-                    if (FeedEncoding == null) FeedEncoding = Encoding.UTF8;
+                    if (FeedEncoding == null)
+                    {
+                        FeedEncoding = Encoding.UTF8;
+                    }
+
                     if (Client == null)
                     {
                         Client = new WebClient
@@ -58,8 +64,11 @@ namespace Analogy.LogViewer.RSSReader.Core
                     }
 
                     if (Client.Headers.Count == 0)
+                    {
                         Client.Headers.Add("user-agent",
                             "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705; .NET CLR 1.1.4322; .NET CLR 2.0.50727)");
+                    }
+
                     DateTime first = DateTime.Now;
 
                     var xmlData = await Client.DownloadStringTaskAsync(new Uri(RSSUrl));
@@ -80,7 +89,9 @@ namespace Analogy.LogViewer.RSSReader.Core
                     }
 
                     if (RSSItemsList == null || RSSItemsList.Count() == 0)
+                    {
                         RSSItemsList = newItems.ToList<IRSSPost>();
+                    }
                     else
                     {
 

@@ -52,7 +52,9 @@ namespace Analogy.LogViewer.RSSReader
                     SetDispalyFeeds(DisplayFeedsType.Active, null);
                 }
                 else
+                {
                     SetDispalyFeeds(DisplayFeedsType.NonActive, null);
+                }
 
                 GetRSSItemsFromFeeds(DisplayFeeds, true, true);
             }
@@ -191,7 +193,9 @@ namespace Analogy.LogViewer.RSSReader
 
             //save feeds to disk?
             if (Settings.AppRSSSetings.SaveRSSFeedsOnEveryRefresh && fromweb && posts.Count > 0)
+            {
                 SaveAllFeedsToDisk();
+            }
 
             // var postsarg = new RefreshArgs(posts);
             //  OnWebRefresh(this, postsarg);
@@ -204,7 +208,10 @@ namespace Analogy.LogViewer.RSSReader
         {
             List<IRSSPost> postsToDisplay = alternativePost;
             if (postsToDisplay == null)
+            {
                 postsToDisplay = DisplayPosts;
+            }
+
             postsToDisplay = postsToDisplay.Where(itm => !itm.Read || itm.Read != unreadonly).ToList();
             postsToDisplay = postsToDisplay.OrderByDescending(itm => itm.AddedDate).ToList();
             // olvPosts.SetObjects(postsToDisplay);

@@ -198,12 +198,15 @@ namespace Analogy.LogViewer.RSSReader.Core
         {
             string settingsfilefullpath = Path.Combine(Environment.CurrentDirectory, "settings.dat");
             if (perUser)
+            {
                 settingsfilefullpath = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile),
-                                                    @"AppData\local\LB Desktop Aggregator\settings.dat");
+                    @"AppData\local\LB Desktop Aggregator\settings.dat");
+            }
 
             BinaryFormatter myformatter = new BinaryFormatter();
 
             if (File.Exists(settingsfilefullpath))
+            {
                 try
                 {
                     using (Stream myReader = File.Open(settingsfilefullpath, FileMode.Open, FileAccess.Read))
@@ -217,6 +220,8 @@ namespace Analogy.LogViewer.RSSReader.Core
                     return new AppSettings();
 
                 }
+            }
+
             return new AppSettings();
         }
         public static void SaveSettings(AppSettings settings, bool suppressError = false)
@@ -228,7 +233,10 @@ namespace Analogy.LogViewer.RSSReader.Core
             try
             {
                 if (dirpath != null && !(Directory.Exists(dirpath)))
+                {
                     Directory.CreateDirectory(dirpath);
+                }
+
                 using (Stream myWriter = File.Open(filename, FileMode.OpenOrCreate, FileAccess.ReadWrite))
                 {
 

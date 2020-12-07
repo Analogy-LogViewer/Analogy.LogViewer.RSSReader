@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -70,9 +69,13 @@ namespace Analogy.LogViewer.RSSReader.Core
             get
             {
                 if (i < RSSItemsList.Count)
+                {
                     return RSSItemsList[i];
+                }
                 else
+                {
                     return null;
+                }
             }
 
         }
@@ -127,7 +130,10 @@ namespace Analogy.LogViewer.RSSReader.Core
         {
             IEnumerable<IRSSPost> items =await RefreshCurrentItems(suppressErrorDisplay);
             if (!showHiddenPosts)
+            {
                 items = items.Where(p => !p.IgnoreThisPost);
+            }
+
             if (onlyUnreadItems)
             {
                 items = (from itm in items
@@ -140,7 +146,10 @@ namespace Analogy.LogViewer.RSSReader.Core
         {
             IEnumerable<IRSSPost> items = RSSItemsList ?? new List<IRSSPost>();
             if (!showHiddenPosts)
+            {
                 items = items.Where(p => !p.IgnoreThisPost);
+            }
+
             if (onlyUnreadItems)
             {
                 items = (from itm in items
@@ -158,7 +167,9 @@ namespace Analogy.LogViewer.RSSReader.Core
             lock (this)
             {
                 if (RSSItemsList != null)
+                {
                     RSSItemsList.Clear();
+                }
             }
         }
         public void RemovePost(IRSSPost post)
@@ -169,7 +180,9 @@ namespace Analogy.LogViewer.RSSReader.Core
 
                 int pos = RSSItemsList.FindIndex(item => itemsComparer.Equals(item, post));
                 if (pos >= 0)
+                {
                     RSSItemsList.RemoveAt(pos);
+                }
             }
         }
         #endregion

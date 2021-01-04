@@ -13,7 +13,7 @@
 		<ApplicationIcon />
 		<StartupObject />
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.4.0</Version>
+		<Version>1.4.1</Version>
 		<Authors>Lior Banai</Authors>
 		<Copyright>Lior Banai © 2020</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -30,7 +30,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.9.1.1" />
-		<PackageReference Include="Analogy.LogViewer.Template" Version="1.8.0" />
+		<PackageReference Include="Analogy.LogViewer.Template" Version="1.8.1" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
-		<TargetFrameworks>netcoreapp3.1;net48;net472;net471</TargetFrameworks>
+		<TargetFrameworks>net5.0-windows;netcoreapp3.1;net48;net472;net471</TargetFrameworks>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<IncludeSymbols>true</IncludeSymbols>
@@ -13,7 +13,7 @@
 		<ApplicationIcon />
 		<StartupObject />
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.4.2.1</Version>
+		<Version>1.5.0</Version>
 		<Authors>Lior Banai</Authors>
 		<Copyright>Lior Banai © 2020-2021</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -29,8 +29,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.12.5" />
-		<PackageReference Include="Analogy.LogViewer.Template" Version="1.8.3.2" />
+		<PackageReference Include="Analogy.LogViewer.Interfaces" Version="2.13.0" />
+		<PackageReference Include="Analogy.LogViewer.Template" Version="1.9.0" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="1.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
